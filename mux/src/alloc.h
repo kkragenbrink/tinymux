@@ -22,6 +22,8 @@
 
 #ifdef FIRANMUX
 #define LBUF_SIZE   24000   // Large
+#elif CAMUX
+#define LBUF_SIZE   64000   // Large
 #else
 #define LBUF_SIZE   8000    // Large
 #endif

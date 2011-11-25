@@ -641,6 +641,8 @@ INLINESQL_INCLUDE
 SELFCHECK
 INLINESQL_LIBS
 INLINESQL
+CALIBS
+CAMUX
 FIRANLIBS
 FIRANMUX
 STUBSLAVE_TARGET
@@ -696,6 +698,7 @@ enable_wodrealms
 enable_memorybased
 enable_stubslave
 enable_firanmux
+enable_camux
 enable_inlinesql
 enable_selfcheck
 with_mysql_include
@@ -1336,6 +1339,7 @@ Optional Features:
   --enable-memorybased    enable Memory-Based Database (default is NO)
   --enable-stubslave      enable Stub Slave (default is NO)
   --enable-firanmux       enable Firan MUX (default is NO)
+  --enable-camux          enable Coda Apocrypha MUX (default is NO)
   --enable-inlinesql      enable inline MySQL support compatible with PennMUSH
                           and TinyMUSH 3.x (default is NO)
   --enable-selfcheck      enable expensive self-checking (default is NO)
@@ -2682,6 +2686,27 @@ $as_echo "no" >&6; }
 fi
 
 
+{ $as_echo "$as_me:${as_lineno-$LINENO}: checking whether to enable Coda Apocrypha MUX" >&5
+$as_echo_n "checking whether to enable Coda Apocrypha MUX... " >&6; }
+# Check whether --enable-camux was given.
+if test "${enable_camux+set}" = set; then :
+  enableval=$enable_camux;
+    if test "x$enableval" = "xno"; then
+      { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
+$as_echo "no" >&6; }
+    else
+      CAMUX="-DCAMUX"
+      CALIBS=""
+      { $as_echo "$as_me:${as_lineno-$LINENO}: result: yes" >&5
+$as_echo "yes" >&6; }
+    fi
+
+else
+
+    { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
+$as_echo "no" >&6; }
+
+fi
 
 
 { $as_echo "$as_me:${as_lineno-$LINENO}: checking whether to enable inline MySQL" >&5

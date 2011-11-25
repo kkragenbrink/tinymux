@@ -11,7 +11,7 @@ BIN = ../game/bin
 CC = @CC@
 CXX = @CXX@
 CXXCPP = @CXXCPP@
-LIBS = @LIBS@ @FIRANLIBS@
+LIBS = @LIBS@ @FIRANLIBS@ @CALIBS@
 
 .SUFFIXES: .cpp
 
@@ -62,6 +62,12 @@ STUBLIBS   =  # -ldbi
 # necessary.
 #
 FIRANMUX    = @FIRANMUX@
+
+# Coda Apocrypha MUX. By default, this is off. This can be turned on by running
+# configure with --enable-camux. Coda Apocrypha MUX modifications are necessary
+# in order to run Coda Apocrypha's database.
+#
+CAMUX    = @CAMUX@
 
 # Inline SQL support.  This provides an inline sql() function which links
 # to a MySQL database, providing softcode compatibility with the SQL support
@@ -164,7 +170,7 @@ DEFS =
 #
 AUX_SRC = unsplit.cpp
 ALLCXXFLAGS = $(CXXFLAGS) $(OPTIM) $(DEFS) $(MEMORY_BASED) $(WOD_REALMS) \
-    $(REALITY_LVLS) $(STUB_SLAVE) $(FIRANMUX) $(DEPRECATED) $(SELFCHECK) \
+    $(REALITY_LVLS) $(STUB_SLAVE) $(FIRANMUX) $(CAMUX) $(DEPRECATED) $(SELFCHECK) \
     $(INLINESQL) $(INLINESQL_INCLUDE) $(SSL)
 
 # Compiliation source files.
